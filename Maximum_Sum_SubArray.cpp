@@ -102,7 +102,59 @@ void algorithm_1(vector< vector <int> > input_arrays) {
 // Algorithm 2
 // Better Enumeration
 void algorithm_2(vector< vector<int> > input_arrays) {
+	// This stores the best sum of each sub array 
+	int best = -1;
+	int sum = 0;
 
+	// These store the low index and high index of the Maximum Sum SubArray
+	int low = -1;
+	int high = -1;
+
+	// We will put Algorithm 1's results in the file below.
+	ofstream alg2_output;
+	alg2_output.open("Algorithm_2_Results.txt");
+
+	// These are used to store the runtime of the algorithm
+	clock_t t1, t2, runtime;
+
+	// "Start" the clock at the beginning of the algorithm
+	t1 = clock();
+	
+	// For each problem from the set of problems
+	for(int u = 0; u < input_arrays.size(); u++) {
+
+  	// This is Algorithm 2
+		for(int i = 0; i < input_arrays[u].size(); i++) {
+			sum = 0;
+			
+			for(int j = i; j < input_arrays[u].size(); j++) {
+				sum += input_arrays[u][j];
+				
+				if(sum > best) {
+					low = i;
+					high = j;
+					best = sum;
+				}
+			}
+		}
+		
+		// These print the algorithm results in "Algorithm_1_Results.txt"
+		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg2_output);
+		print_array(input_arrays[u], low, high, &alg2_output);
+		alg2_output << best << endl;
+
+		// Reset "best" for another run of the algorithm
+		best = 0;
+	}
+
+	// "Stop" the clock at the end of the algorithm
+	t2 = clock();
+	runtime = t2 - t1;
+
+	// Print the runtime to the file
+	alg2_output << "Runtime: " << runtime << endl;
+
+	alg2_output.close();
 }
 
 // Algorithm 3
@@ -180,7 +232,7 @@ int main() {
 	algorithm_1(input_arrays);
 
 	// Call algorithm 2
-
+	algorithm_2(input_arrays);
 
 	// Call algorithm 3
 
