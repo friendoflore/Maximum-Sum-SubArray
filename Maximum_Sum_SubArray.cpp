@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <array>
 #include <ctime>
+#include <cstdlib>
 
 using namespace std;
 
@@ -81,7 +81,7 @@ void algorithm_1(vector< vector <int> > input_arrays) {
 		
 		// These print the algorithm results in "Algorithm_1_Results.txt"
 		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg1_output);
-		print_array(input_arrays[u], low, high, &alg1_output);
+		print_array(input_arrays[u], low, high + 1, &alg1_output);
 		alg1_output << best << endl;
 
 		// Reset "best" for another run of the algorithm
