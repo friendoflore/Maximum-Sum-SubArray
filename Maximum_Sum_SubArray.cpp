@@ -139,7 +139,7 @@ void algorithm_2(vector< vector<int> > input_arrays) {
 		
 		// These print the algorithm results in "Algorithm_1_Results.txt"
 		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg2_output);
-		print_array(input_arrays[u], low, high, &alg2_output);
+		print_array(input_arrays[u], low, high + 1, &alg2_output);
 		alg2_output << best << endl;
 
 		// Reset "best" for another run of the algorithm
