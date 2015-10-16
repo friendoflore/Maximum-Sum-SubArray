@@ -25,18 +25,17 @@ void print_array(vector<int> print_array, int low_idx,
 
 	// Print each array to the file, formatted
 	*alg_file << "[";
-	for(int i = low_idx; i <= high_idx; i++) {
+	for(int i = low_idx; i < high_idx; i++) {
 
 		// Print each value
 		*alg_file << print_array[i];
 
-		if(i != high_idx)
+		if(i != (high_idx - 1))
 			*alg_file << ", ";
 	}
 
 	*alg_file << "]" << endl;
 }
-
 
 // Algorithm 1
 // Enumeration
@@ -200,7 +199,6 @@ vector< vector <int> > parse_input(vector<string> input_strings) {
 		tmp_vector.clear();
 		tmp_string = "";
 	}
-
 
 	return input_arrays;
 }
