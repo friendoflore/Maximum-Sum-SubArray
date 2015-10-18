@@ -1,3 +1,0 @@
-Algorithm 1: 43
-Algorithm 2: 18
-Algorithm 4: 9
