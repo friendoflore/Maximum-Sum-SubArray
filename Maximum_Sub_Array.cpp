@@ -47,8 +47,8 @@ void algorithm_1(vector< vector <int> > input_arrays) {
 	int sum = 0;
 
 	// These store the low index and high index of the Maximum Sum SubArray
-	int low = -1;
-	int high = -1;
+	int low = 0;
+	int high = 0;
 
 	// We will put Algorithm 1's results in the file below.
 	ofstream alg1_output;
@@ -87,14 +87,17 @@ void algorithm_1(vector< vector <int> > input_arrays) {
 		t2 = clock();
 		runtime = (t2 - t1) / (double) CLOCKS_PER_SEC;
 		
-		// These print the algorithm results in "Algorithm_1_Results.txt"
-		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg1_output);
-		print_array(input_arrays[u], low, high + 1, &alg1_output);
-		alg1_output << best << endl;
-		alg1_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
 		
+		if(best != -1) {
+			// These print the algorithm results in "Algorithm_1_Results.txt"
+			print_array(input_arrays[u], 0, input_arrays[u].size(), &alg1_output);
+			print_array(input_arrays[u], low, high + 1, &alg1_output);
+			alg1_output << best << endl;
+			alg1_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
+		}
+
 		// Reset "best" for another run of the algorithm
-		best = 0;
+		best = -1;
 	}
 
 	alg1_output.close();
@@ -145,15 +148,17 @@ void algorithm_2(vector< vector<int> > input_arrays) {
 		t2 = clock();
 		runtime = (t2 - t1) / (double) CLOCKS_PER_SEC;
 		
-		// These print the algorithm results in "Algorithm_2_Results.txt"
-		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg2_output);
-		print_array(input_arrays[u], low, high + 1, &alg2_output);
-		alg2_output << best << endl;
-		alg2_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
-		
+
+		if(best != -1) {
+			// These print the algorithm results in "Algorithm_2_Results.txt"
+			print_array(input_arrays[u], 0, input_arrays[u].size(), &alg2_output);
+			print_array(input_arrays[u], low, high + 1, &alg2_output);
+			alg2_output << best << endl;
+			alg2_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 	
+		}
 
 		// Reset "best" for another run of the algorithm
-		best = 0;
+		best = -1;
 	}
 	
 	alg2_output.close();
@@ -242,7 +247,7 @@ void algorithm_3(vector< vector<int> > input_arrays) {
 
 	vector<int> result;
 
-	// We will put Algorithm 4's results in the file below.
+	// We will put Algorithm 3's results in the file below.
 	ofstream alg3_output;
 	alg3_output.open("MSS_Results.txt", ios::out | ios::app);
 	alg3_output  << endl << "Beginning algorithm 3" << endl << endl; 
@@ -256,26 +261,33 @@ void algorithm_3(vector< vector<int> > input_arrays) {
 
 		int low = 0;
 		int high = input_arrays[u].size() - 1;
-		int max = 0;
+		int max = -1;
 
-		// "Start" the clock at the beginning of the algorithm
-		t1 = clock();
+		if(high != -1) {
+			// "Start" the clock at the beginning of the algorithm
+			t1 = clock();
 
-		result = Find_Max_Subarray(input_arrays[u], low, high);
+			result = Find_Max_Subarray(input_arrays[u], low, high);
 
-		// "Stop" the clock at the end of the algorithm
-		t2 = clock();
-		runtime = (t2 - t1) / (double) CLOCKS_PER_SEC;
+			// "Stop" the clock at the end of the algorithm
+			t2 = clock();
+			
+			runtime = (t2 - t1) / (double) CLOCKS_PER_SEC;
 
-		low = result[0];
-		high = result[1];
-		max = result[2];
+			low = result[0];
+			high = result[1];
+			max = result[2];
+		}
 
-		// These print the algorithm results in "MSS_Results.txt"
-		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg3_output);
-		print_array(input_arrays[u], low, high + 1, &alg3_output);
-		alg3_output << max << endl;
-		alg3_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
+		if(high != -1) {
+			// These print the algorithm results in "MSS_Results.txt"
+			print_array(input_arrays[u], 0, input_arrays[u].size(), &alg3_output);
+			print_array(input_arrays[u], low, high + 1, &alg3_output);
+			alg3_output << max << endl;
+			alg3_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
+		}
+
+		max = -1;
 	}
 }
 
@@ -315,15 +327,15 @@ void algorithm_4(vector< vector<int> > input_arrays) {
 		for(int i = 0; i < input_arrays[u].size(); i++) {
 		  temp_high = i;
 		  if (sum > 0) {
-			sum = sum + input_arrays[u][i];
+				sum = sum + input_arrays[u][i];
 		  } else {
-			temp_low = i;
-			sum = input_arrays[u][i];
+				temp_low = i;
+				sum = input_arrays[u][i];
 		  }
 		  if (sum > max) {
-			max = sum;
-			low = temp_low;
-			high = temp_high;
+				max = sum;
+				low = temp_low;
+				high = temp_high;
 		  }
       
     }
@@ -331,12 +343,15 @@ void algorithm_4(vector< vector<int> > input_arrays) {
 		t2 = clock();
 		runtime = (t2 - t1) / (double) CLOCKS_PER_SEC;
 
-		// These print the algorithm results in "Algorithm_4_Results.txt"
-		print_array(input_arrays[u], 0, input_arrays[u].size(), &alg4_output);
-		print_array(input_arrays[u], low, high + 1, &alg4_output);
-		alg4_output << max << endl;
-		alg4_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
-		
+		if(max != -1) {	
+			// These print the algorithm results in "Algorithm_4_Results.txt"
+			print_array(input_arrays[u], 0, input_arrays[u].size(), &alg4_output);
+			print_array(input_arrays[u], low, high + 1, &alg4_output);
+			alg4_output << max << endl;
+			alg4_output << "algorithm ran in " << runtime << " seconds for input of " << input_arrays[u].size() << "." << endl; 
+		}
+
+		max = -1;
 	}
 
 	alg4_output.close(); 
@@ -375,6 +390,7 @@ vector< vector <int> > parse_input(vector<string> input_strings) {
 	}
 
 	return input_arrays;
+
 }
 
 // generate the random input for the evaluation 
@@ -452,6 +468,7 @@ int main(int argc, char *argv[]) {
 		input_arrays = generateRandInput(alg3inputs, 10);
 		
 		// Call algorithm 3
+		algorithm_3(input_arrays);
 
 		// clear input arrays 
 		for (int i = 0; i < input_arrays.size(); i++)
@@ -472,7 +489,7 @@ int main(int argc, char *argv[]) {
 	else
 	{
 		// Open problems text
-		ifstream problems ("MSS_TestProblems.txt", ifstream::in);
+		ifstream problems ("MSS_Problems.txt", ifstream::in);
 
 		while(problems.good()) {
 			getline(problems, input_string);
