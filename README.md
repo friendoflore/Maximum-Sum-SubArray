@@ -1,8 +1,8 @@
 # Maximum-Sum-SubArray
 ## I. File list
 Maximum_Sub_Array.cpp&nbsp;&nbsp;&nbsp;&nbsp;Algorithm implementation<br />
-MSS_Programs.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample problem set <br />
-README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This file<br />
+MSS_Programs.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample problem set <br />
+README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This file<br />
 
 
 ## II. Program instructions
@@ -105,6 +105,6 @@ range and the sum of that range.
 This program was written for CS 325 at Oregon State University, Project Group 
 14, Fall 2015.
 
-Benjamin Olson
-David Profio
+Benjamin Olson<br />
+David Profio<br />
 Timothy Robinson
