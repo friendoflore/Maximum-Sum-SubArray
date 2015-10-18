@@ -1,8 +1,8 @@
 # Maximum-Sum-SubArray
 ## I. File list
-Maximum_Sub_Array.cpp&nbsp;&nbsp;&nbsp;&nbsp;Algorithm implementation
-MSS_Programs.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample problem set
-README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This file
+Maximum_Sub_Array.cpp&nbsp;&nbsp;&nbsp;&nbsp;Algorithm implementation<br />
+MSS_Programs.txt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sample problem set <br />
+README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This file<br />
 
 
 ## II. Program instructions
@@ -11,7 +11,7 @@ README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This 
 
 Given an array of integers of the form
 
-	"[a_0, a_1, a_2, ... , a_n]"
+	[a_0, a_1, a_2, ... , a_n]
 
 this program returns the contiguous subarray with the maximum sum. This program
 accepts input from a file, the name of which is hard-coded, or the program can 
@@ -51,17 +51,17 @@ For each of the four algorithms, this program outputs the original array, the
 maximum subarray, the sum of that subarray, and the time (in seconds) that the
 algorithm took to complete. The output will look as follows:
 
-	>Beginning algorithm 1
+	Beginning algorithm 1
 
-	>[a_0, a_1, a_2, ... , a_n]
-	>[a_i, a_j, ... , a_m]
-	>a_i + a_j + ... + a_m
-	>algorithm ran in [1e-05] seconds for input of [n]
-	>.
-	>.
-	>.
+	[a_0, a_1, a_2, ... , a_n]
+	[a_i, a_j, ... , a_m]
+	a_i + a_j + ... + a_m
+	algorithm ran in [1e-05] seconds for input of [n]
+	.
+	.
+	.
 
-where this i >= 0 and m <= n. Algorithms 1 - 4 all print their results one
+where i >= 0 and m <= n. Algorithms 1 - 4 all print their results one
 after the other in the same output file.
 
 
